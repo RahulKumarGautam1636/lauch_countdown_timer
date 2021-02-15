@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+  <title>Frontend Mentor | Launch countdown timer</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    /* .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); } */
+    * { margin: 0; padding: 0; box-sizing: border-box;}
+    body {
+      font-family: "Red Hat Text", cursive;
+    }
+    html { 62.5%; }
+    main {
+      height: 100vh;
+      width: 100%;
+      position: absolute;
+      background: hsl(235, 16%, 14%);
+      background-image: url('images/pattern-hills.svg');
+      background-repeat: no-repeat;
+      background-position: bottom;
+      background-size: 100%;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    #stars {
+      position: absolute;
+    }
+    .container {
+      height: 35rem;
+      /* background: white; */
+      /* transform: translateY(-rem); */
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      flex-direction: column;
+    }
+    .card {
+      height: 10rem;
+      margin: 2rem;
+      width: 8rem;
+      border-radius: 5px;
+      text-align: center;
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+    }
+    .clockCard {
+      height: 80%;
+      border-radius: 5px;
+      width: 100%;
+      background: hsl(236, 21%, 26%);
+      transform: rotateX(0deg);
+      display: flex;
+      justify-content: space-around;
+      transition: 0.250s linear;
+    }
+    .clockCard:before {
+      content: " ";
+      height: 1.7rem;
+      width: 1rem;
+      background: hsl(235, 16%, 14%);
+      align-self: center;
+      border-radius: 0 20px 20px 0;
+    }
+    .clockCard:after {
+      content: " ";
+      height: 1.7rem;
+      width: 1rem;
+      border-radius: 20px 0 0 20px;
+      background: hsl(235, 16%, 14%);
+      align-self: center;
+    }
+    .num {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .card p {
+      color: hsl(237, 18%, 59%);
+      letter-spacing: 1px;
+    }
+    .heading {
+      text-align: center;
+      color: hsl(0, 0%, 100%);
+      font-size: 1.5rem;
+      letter-spacing: 0.5rem;
+      word-spacing: 0.5rem;
+    }
+    .footer {
+      margin-bottom: 5rem;
+      position: relative;
+      height: 2rem;
+      width: 100%;
+      text-align: center;
+    }
+    .footer img {
+      margin: 0 2rem 0 2rem;
+    }
+    .card h1 {
+      color: hsl(345, 95%, 68%);
+      font-size: 4rem;
+      margin: auto;
+    }
+    #head {
+      background: white;
+    }
+    /* .attribution {
+
+    } */
+@media only screen and (max-width: 700px) {
+  html {
+    font-size: 60%;
+  }
+  main {
+    background-size: 150% 30%;
+  }
+  .card {
+    margin: 1rem;
+  }
+  .container {
+    height: 45rem;
+  }
+  .heading p {
+    font-size: 2rem;
+    width: 30rem;
+  }
+
+}
+@media only screen and (max-width: 380px) {
+  html {
+    font-size: 50%;
+  }
+}
+
+  </style>
+</head>
+<body>
+  <main id="parent">
+<svg id="stars" xmlns="http://www.w3.org/2000/svg" width="1440" height="569"><path fill="#46485B" fill-rule="evenodd" d="M774 563a3 3 0 110 6 3 3 0 010-6zm-623.5-5a1.5 1.5 0 110 3 1.5 1.5 0 010-3zm875 0a1.5 1.5 0 110 3 1.5 1.5 0 010-3zm-523-3a1.5 1.5 0 110 3 1.5 1.5 0 010-3zm233-7a1.5 1.5 0 110 3 1.5 1.5 0 010-3zM178 542a3 3 0 110 6 3 3 0 010-6zm1127.5 2a1.5 1.5 0 110 3 1.5 1.5 0 010-3zm45.5-10a3 3 0 110 6 3 3 0 010-6zm-565.5-3a1.5 1.5 0 110 3 1.5 1.5 0 010-3zm-784-15a1.5 1.5 0 110 3 1.5 1.5 0 010-3zm278.5-9a3 3 0 110 6 3 3 0 010-6zm207.5-30a1.5 1.5 0 110 3 1.5 1.5 0 010-3zm50-17a1.5 1.5 0 110 3 1.5 1.5 0 010-3zm233-8a1.5 1.5 0 110 3 1.5 1.5 0 010-3zm465-22a1.5 1.5 0 110 3 1.5 1.5 0 010-3zm-699-6a1.5 1.5 0 110 3 1.5 1.5 0 010-3zm-465-22a1.5 1.5 0 110 3 1.5 1.5 0 010-3zm1165-8a1.5 1.5 0 110 3 1.5 1.5 0 010-3zm-50-17a1.5 1.5 0 110 3 1.5 1.5 0 010-3zM250 345a3 3 0 110 6 3 3 0 010-6zm450.5-7a1.5 1.5 0 110 3 1.5 1.5 0 010-3zm-614-15a1.5 1.5 0 110 3 1.5 1.5 0 010-3zm520-13a1.5 1.5 0 110 3 1.5 1.5 0 010-3zm-570-4a1.5 1.5 0 110 3 1.5 1.5 0 010-3zm1169.5-7a3 3 0 110 6 3 3 0 010-6zm-4.5 0a1.5 1.5 0 110 3 1.5 1.5 0 010-3zm-875-3a1.5 1.5 0 110 3 1.5 1.5 0 010-3zm523 0a1.5 1.5 0 110 3 1.5 1.5 0 010-3zm-392-34a1.5 1.5 0 110 3 1.5 1.5 0 010-3zm656 0a1.5 1.5 0 110 3 1.5 1.5 0 010-3zm-1008-3a1.5 1.5 0 110 3 1.5 1.5 0 010-3zm1298-7a1.5 1.5 0 110 3 1.5 1.5 0 010-3zm-570-4a1.5 1.5 0 110 3 1.5 1.5 0 010-3zm520-13a1.5 1.5 0 110 3 1.5 1.5 0 010-3zm-145.5-9a3 3 0 110 6 3 3 0 010-6zm-601.5-6a1.5 1.5 0 110 3 1.5 1.5 0 010-3zm499.5-29a3 3 0 110 6 3 3 0 010-6zm-985.5-10a1.5 1.5 0 110 3 1.5 1.5 0 010-3zm-50-17a1.5 1.5 0 110 3 1.5 1.5 0 010-3zm1298-8a1.5 1.5 0 110 3 1.5 1.5 0 010-3zm-465-22a1.5 1.5 0 110 3 1.5 1.5 0 010-3zm-832-6a1.5 1.5 0 110 3 1.5 1.5 0 010-3zm33.5-18a3 3 0 110 6 3 3 0 010-6zm431.5-4a1.5 1.5 0 110 3 1.5 1.5 0 010-3zm366-8a1.5 1.5 0 110 3 1.5 1.5 0 010-3zm50-17a1.5 1.5 0 110 3 1.5 1.5 0 010-3zm486-39a1.5 1.5 0 110 3 1.5 1.5 0 010-3zM1136 29a3 3 0 110 6 3 3 0 010-6zm-614.5-2a1.5 1.5 0 110 3 1.5 1.5 0 010-3zM412 23a3 3 0 110 6 3 3 0 010-6zM1.5 14a1.5 1.5 0 110 3 1.5 1.5 0 010-3zm570-4a1.5 1.5 0 110 3 1.5 1.5 0 010-3zm366-7a1.5 1.5 0 110 3 1.5 1.5 0 010-3zm-656-3a1.5 1.5 0 110 3 1.5 1.5 0 010-3zm1008 0a1.5 1.5 0 110 3 1.5 1.5 0 010-3z"/></svg>
+  <div class="container">
+  <div class="heading"><p>WE'RE LAUNCHING SOON</p></div>
+  <div class="num">
+    <div class="card"><div id="daysCard" class="clockCard"><h1 id="day">00</h1></div><p>Days</p></div>
+    <div class="card"><div id="hoursCard" class="clockCard"><h1 id="hour">00</h1></div><p>Hours</p></div>
+    <div class="card"><div id="minutesCard" class="clockCard"><h1 id="minute">00</h1></div><p>Minutes</p></div>
+    <div class="card"><div id="secondsCard" class="clockCard"><h1 id="second">00</h1></div><p>Seconds</p></div>
+  </div>
+  </div>
+  <div class="footer">
+    <img src="images/icon-facebook.svg" alt="fb">
+    <img src="images/icon-pinterest.svg" alt="pn">
+    <img src="images/icon-instagram.svg" alt="in">
+  </div>
+  </main>
+    <!-- <div class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+      Coded by <a href="#">Rahul Kumar Gautam</a>.
+    </div> -->
+
+<script>
+window.onload = setTimeout(countDown(),1000);
+var d = new Date(2021, 2, 25, 9, 00, 00);
+function countDown() {
+  var n = new Date();
+  var count = new Date(d-n);
+  $("#day").html(count.getDate());
+  $("#hour").html(count.getHours());
+  $("#minute").html(count.getMinutes());
+  $("#second").html(count.getSeconds());
+}
+
+function flip1() {
+  $("#secondsCard").css("transform", "rotateX(0deg)");
+  setTimeout(function() {$("#secondsCard").css("transform", "rotateX(90deg)");},500);
+}
+function flip2() {
+  $("#minutesCard").css("transform", "rotateX(90deg)");
+  setTimeout(function() {$("#minutesCard").css("transform", "rotateX(0deg)");},500);
+}
+function flip3() {
+  $("#hoursCard").css("transform", "rotateX(90deg)");
+  setTimeout(function() {$("#hoursCard").css("transform", "rotateX(0deg)");},500);
+}
+function flip4() {
+  $("#daysCard").css("transform", "rotateX(90deg)");
+  setTimeout(function() {$("#daysCard").css("transform", "rotateX(0deg)");},500);
+}
+
+
+setInterval(countDown, 1000);
+setTimeout(setInterval(flip1, 1000), 250);
+
+setInterval(function() {
+if ($("#second").html() === "0") {
+  setTimeout(flip2, 500);
+}
+if ($("#minute").html() === "0" && $("#second").html() === "0") {
+  setTimeout(flip3, 500)
+}
+if ($("#hour").html() === "0" && $("#minute").html() === "0" && $("#second").html() === "0") {
+  setTimeout(flip4, 500);
+}
+},1000);
+
+// function flip(props) {
+//   $(props).css("transform", "rotateX(0deg)");
+//   setTimeout(function() {$(props).css("transform", "rotateX(90deg)");},500);
+// }
+// setTimeout(setInterval(function() {flip("#secondsCard")},1000),250)
+// setInterval(function() {
+// if ($("#second").html() === "0") {
+//   setTimeout(function() {flip("#minutesCard")}, 500);
+// }
+// if ($("#minute").html() === "0" && $("#second").html() === "0") {
+//   setTimeout(flip("#hoursCard"), 500)
+// }
+// if ($("#hour").html() === "0" && $("#minute").html() === "0" && $("#second").html() === "0") {
+//   setTimeout(flip("#daysCard"), 500);
+// }
+// },1000);
+
+
+// -----------------------------------------------------------for clock---------
+// setInterval(countDown, 1000)
+// setTimeout(setInterval(flip1, 1000), 250);
+// setInterval(function() {
+// if ($("#second").html() === "59") {
+//   setTimeout(flip2, 500);
+// }
+// if ($("#minute").html() === "59" && $("#second").html() === "59") {
+//   setTimeout(flip3, 500)
+// }
+// if ($("#hour").html() === "23" && $("#minute").html() === "59" && $("#second").html() === "59") {
+//   setTimeout(flip4, 500);
+// }
+// },1000);
+
+
+</script>
+</body>
+</html>
+
+
+
+<!-- We're launching soon
+
+Days
+Hours
+Minutes
+Seconds
