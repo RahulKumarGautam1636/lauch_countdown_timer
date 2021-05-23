@@ -39,22 +39,11 @@
     }
     .container {
       height: 35rem;
-      /* background: white; */
-      /* transform: translateY(-rem); */
-      margin: 0 auto;
+      width: 100%;
+      /* margin: 0 auto; */
       display: flex;
       justify-content: space-evenly;
       align-items: center;
-      flex-direction: column;
-    }
-    .card {
-      height: 10rem;
-      margin: 2rem;
-      width: 8rem;
-      border-radius: 5px;
-      text-align: center;
-      display: flex;
-      justify-content: space-between;
       flex-direction: column;
     }
     .clockCard {
@@ -66,7 +55,7 @@
       display: flex;
       justify-content: space-around;
       transition: 0.250s linear;
-      backface-visibility:visible
+      transform-style: preserve-3d;
     }
     .clockCard:before {
       content: " ";
@@ -85,9 +74,10 @@
       align-self: center;
     }
     .num {
-      width: 100%;
+      width: 69%;
       display: flex;
-      justify-content: center;
+      flex-direction: row-reverse;
+      justify-content: space-evenly;
       align-items: center;
     }
     .card p {
@@ -113,16 +103,95 @@
     }
     .card h1 {
       color: hsl(345, 95%, 68%);
-      font-size: 4rem;
+      font-size: 5rem;
       margin: auto;
+      /* transform: translateZ(2rem); */
     }
     #head {
       background: white;
     }
-    /* .attribution {
 
-    } */
-@media only screen and (max-width: 750px) {
+    .card {
+      height: 10rem;
+      width: 10.7rem;
+      flex-direction: column;
+      perspective: 300px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      -webkit-backface-visibility: visible;
+      transform-style: preserve-3d;
+      z-index: 0;
+      border-radius: 10px;
+      background: red;
+    }
+    #handle {
+      height: 50%;
+      width: 100%;
+      position: absolute;
+      bottom: 0;
+      background: red;
+      overflow: hidden;
+      z-index: 2;
+    }
+    .cardH1 {
+      /* color: #e7f037; */
+    }
+    .frontH1 {
+      /* color: blue; */
+    }
+    .backH1 {
+      /* color: red; */
+    }
+    #handleBack {
+      margin-top: -3.298rem;
+    }
+    .card div {
+      height: 10rem;
+      width: 10rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 10px;
+      transform-style: preserve-3d;
+      background: red;
+    }
+    .front {
+      position: absolute;
+      z-index: 1;
+      backface-visibility: hidden;
+      background: cyan;
+      opacity: 0;
+
+    }
+    .back {
+      z-index: 3;
+      background: blue;
+      position: absolute;
+      transform: rotateX(90deg);
+    }
+    .moveFront {
+      opacity: 1;
+      transform: rotateX(-90deg);
+      transition: transform 0.5s ease-in;
+    }
+    .moveBack {
+      transform: rotateX(0deg);
+      transition: transform 0.5s ease-out;
+    }
+    h1 {
+      font-size: 10rem;
+    }
+    .outer_container {
+      background: blue;
+      height: 10.7rem;
+      border-radius: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+@media only screen and (max-width: 700px) {
   html {
     font-size: 60%;
   }
@@ -155,10 +224,66 @@
   <div class="container">
   <div class="heading"><p>WE'RE LAUNCHING SOON</p></div>
   <div class="num">
-    <div class="card"><div id="daysCard" class="clockCard"><h1 id="day">00</h1></div><p>Days</p></div>
+    <!-- <div class="card"><div id="daysCard" class="clockCard"><h1 id="day">00</h1></div><p>Days</p></div>
     <div class="card"><div id="hoursCard" class="clockCard"><h1 id="hour">00</h1></div><p>Hours</p></div>
     <div class="card"><div id="minutesCard" class="clockCard"><h1 id="minute">00</h1></div><p>Minutes</p></div>
-    <div class="card"><div id="secondsCard" class="clockCard"><h1 id="second">00</h1></div><p>Seconds</p></div>
+    <div class="card"><div id="secondsCard" class="clockCard"><h1 id="second">00</h1></div><p>Seconds</p></div> -->
+    <div class="outer_container">
+    <div class="seconds card">
+      <h1 class="cardH1">59</h1>
+      <div id="handle">
+        <h1 id="handleBack">59</h1>
+      </div>
+  <div class="second front">
+    <h1 class="frontH1">59</h1>
+</div>
+  <div class="second back">
+    <h1 class="backH1">59</h1>
+</div>
+</div>
+</div>
+<div class="outer_container">
+<div class="minutes card">
+  <h1 class="cardH1">59</h1>
+  <div id="handle">
+    <h1 id="handleBack">59</h1>
+  </div>
+<div class="minute front">
+<h1 class="frontH1">59</h1>
+</div>
+<div class="minute back">
+<h1 class="backH1">59</h1>
+</div>
+</div>
+</div>
+<div class="outer_container">
+<div class="hours card">
+  <h1 class="cardH1">59</h1>
+  <div id="handle">
+    <h1 id="handleBack">59</h1>
+  </div>
+<div class="hour front">
+<h1 class="frontH1">59</h1>
+</div>
+<div class="hour back">
+<h1 class="backH1">59</h1>
+</div>
+</div>
+</div>
+<div class="outer_container">
+<div class="days card">
+  <h1 class="cardH1">59</h1>
+  <div id="handle">
+    <h1 id="handleBack">59</h1>
+  </div>
+<div class="day front">
+<h1 class="frontH1">59</h1>
+</div>
+<div class="day back">
+<h1 class="backH1">59</h1>
+</div>
+</div>
+</div>
   </div>
   </div>
   <div class="footer">
@@ -173,93 +298,58 @@
     </div> -->
 
 <script>
-window.onload = setTimeout(countDown(),1000);
-var d = new Date(2021, 2, 25, 9, 00, 00);
+// window.onload = setTimeout(countDown(),1000);
+var d = new Date(2021, 2, 30, 6, 3, 00);
 function countDown() {
-  var n = new Date();
-  var count = new Date(d-n);
-  $("#day").html(count.getDate());
-  $("#hour").html(count.getHours());
-  $("#minute").html(count.getMinutes());
-  $("#second").html(count.getSeconds());
+var n = new Date();
+var count = new Date(d-n);
+setTimeout(function(i) {
+  $(".seconds .cardH1").text(count.getSeconds());
+  $(".seconds .backH1").text(count.getSeconds());
+  $(".minutes .cardH1").text(count.getMinutes());
+  $(".minutes .backH1").text(count.getMinutes());
+  $(".hours .cardH1").text(count.getHours());
+  $(".hours .backH1").text(count.getHours());
+  $(".days .cardH1").text(count.getDate());
+  $(".days .backH1").text(count.getDate());
+},100)
+setTimeout(function() {
+  $(".seconds #handleBack").text(count.getSeconds());
+  $(".minutes #handleBack").text(count.getMinutes());
+  $(".hours #handleBack").text(count.getHours());
+  $(".days #handleBack").text(count.getDate());
+},750)
+setTimeout(function() {
+  $(".seconds .frontH1").text(count.getSeconds());
+  $(".minutes .frontH1").text(count.getMinutes());
+  $(".hours .frontH1").text(count.getHours());
+  $(".days .frontH1").text(count.getDate());
+},550)
 }
 
-function flip1() {
-  $("#secondsCard").css("transform", "rotateX(0deg)");
-  setTimeout(function() {$("#secondsCard").css("transform", "rotateX(90deg)");},500);
-}
-function flip2() {
-  $("#minutesCard").css("transform", "rotateX(90deg)");
-  setTimeout(function() {$("#minutesCard").css("transform", "rotateX(0deg)");},500);
-}
-function flip3() {
-  $("#hoursCard").css("transform", "rotateX(90deg)");
-  setTimeout(function() {$("#hoursCard").css("transform", "rotateX(0deg)");},500);
-}
-function flip4() {
-  $("#daysCard").css("transform", "rotateX(90deg)");
-  setTimeout(function() {$("#daysCard").css("transform", "rotateX(0deg)");},500);
-}
-
+function rotateDiv(i) {
+$(i+".back").removeClass("moveBack");
+$(i+".front").addClass("moveFront");
+setTimeout(function() {
+  $(i+".back").addClass("moveBack");
+  $(i+".front").removeClass("moveFront");
+},510);
+};
 
 setInterval(countDown, 1000);
-setTimeout(setInterval(flip1, 1000), 250);
+setTimeout(function() {setInterval(function() {rotateDiv(".second")}, 1000);},0);
 
 setInterval(function() {
-if ($("#second").html() === "0") {
-  setTimeout(flip2, 500);
+if ($(".seconds .frontH1").html() === "0") {
+   rotateDiv(".minute");
 }
-if ($("#minute").html() === "0" && $("#second").html() === "0") {
-  setTimeout(flip3, 500)
+if ($(".minutes .frontH1").html() === "0" && $(".seconds .frontH1").html() === "0") {
+  rotateDiv(".hour")
 }
-if ($("#hour").html() === "0" && $("#minute").html() === "0" && $("#second").html() === "0") {
-  setTimeout(flip4, 500);
+if ($(".hours .frontH1").html() === "0" && $(".minutes .frontH1").html() === "0" && $(".seconds .frontH1").html() === "0") {
+  rotateDiv(".day");
 }
 },1000);
-
-// function flip(props) {
-//   $(props).css("transform", "rotateX(0deg)");
-//   setTimeout(function() {$(props).css("transform", "rotateX(90deg)");},500);
-// }
-// setTimeout(setInterval(function() {flip("#secondsCard")},1000),250)
-// setInterval(function() {
-// if ($("#second").html() === "0") {
-//   setTimeout(function() {flip("#minutesCard")}, 500);
-// }
-// if ($("#minute").html() === "0" && $("#second").html() === "0") {
-//   setTimeout(flip("#hoursCard"), 500)
-// }
-// if ($("#hour").html() === "0" && $("#minute").html() === "0" && $("#second").html() === "0") {
-//   setTimeout(flip("#daysCard"), 500);
-// }
-// },1000);
-
-
-// -----------------------------------------------------------for clock---------
-// setInterval(countDown, 1000)
-// setTimeout(setInterval(flip1, 1000), 250);
-// setInterval(function() {
-// if ($("#second").html() === "59") {
-//   setTimeout(flip2, 500);
-// }
-// if ($("#minute").html() === "59" && $("#second").html() === "59") {
-//   setTimeout(flip3, 500)
-// }
-// if ($("#hour").html() === "23" && $("#minute").html() === "59" && $("#second").html() === "59") {
-//   setTimeout(flip4, 500);
-// }
-// },1000);
-
-
 </script>
 </body>
 </html>
-
-
-
-<!-- We're launching soon
-
-Days
-Hours
-Minutes
-Seconds
