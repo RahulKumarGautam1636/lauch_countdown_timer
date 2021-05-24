@@ -46,59 +46,9 @@
       align-items: center;
       flex-direction: column;
     }
-    .clockCard {
-      height: 80%;
-      border-radius: 5px;
-      width: 100%;
-      background: hsl(236, 21%, 26%);
-      transform: rotateX(0deg);
-      display: flex;
-      justify-content: space-around;
-      transition: 0.250s linear;
-      transform-style: preserve-3d;
-    }
-    .front::before, .back::before, .card::before {
-      content: " ";
-      position: absolute;
-      left: 0;
-      height: 1.2rem;
-      width: 0.6rem;
-      background: hsl(235, 16%, 14%);
-      align-self: center;
-      border-radius: 0 20px 20px 0;
-    }
-    .front::after, .back::after, .card::after {
-      content: " ";
-      position: absolute;
-      right: 0;
-      height: 1.2rem;
-      width: 0.6rem;
-      border-radius: 20px 0 0 20px;
-      background: hsl(235, 16%, 14%);
-      align-self: center;
-    }
-    #handle::after {
-      content: " ";
-      position: absolute;
-      left: 0;
-      top: -0.6rem;
-      height: 1.2rem;
-      width: 0.6rem;
-      border-radius: 0 20px 20px 0;
-      background: hsl(235, 16%, 14%);
-    }
-    #handle::before {
-      content: " ";
-      position: absolute;
-      right: 0;
-      top: -0.6rem;
-      height: 1.2rem;
-      width: 0.6rem;
-      border-radius: 20px 0 0 20px;
-      background: hsl(235, 16%, 14%);
-    }
     .num {
-      width: 100%;
+      width: 65%;
+      min-width: 62rem;
       display: flex;
       flex-direction: row-reverse;
       justify-content: space-evenly;
@@ -127,98 +77,151 @@
     }
     .card h1 {
       color: hsl(345, 95%, 68%);
-      font-size: 5.2rem;
+      font-size: 4.6rem;
     }
     #head {
       background: white;
     }
-
     .card {
-      height: 91.5%;
-      width: 9.5rem;
-      flex-direction: column;
-      perspective: 300px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      -webkit-backface-visibility: visible;
-      transform-style: preserve-3d;
-      z-index: 0;
-      border-radius: 10px;
-      background: hsl(236, 21%, 21%);
-    }
-    #handle {
-      height: 50%;
-      width: 100%;
-      position: absolute;
-      bottom: 0;
-      background: hsl(236, 21%, 26%);
-      overflow: hidden;
-      border-radius: 0 0 10px 10px;
-      z-index: 2;
-    }
-    .cardH1 {
-      /* color: #e7f037; */
-    }
-     .frontH1 {
-      /* color: blue; */
-    }
-    .backH1 {
-      color: green;
-    }
-    #handleBack {
-      /* margin-top: -5.1rem; */
-      margin-top: -46%;
-      /* color: yellow; */
-    }
-    .card div {
-      height: 100%;
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      border-radius: 10px;
-      transform-style: preserve-3d;
-    }
-    .front {
-      position: absolute;
-      z-index: 1;
-      backface-visibility: hidden;
-      background: hsl(236, 21%, 21%);
-      transform: rotateX(-1deg);
-
-    }
-    .back {
-      z-index: 3;
-      background: hsl(236, 21%, 26%);
-      position: absolute;
-      transform: rotateX(90deg);
-      opacity: 0;
-    }
-    .moveFront {
-      opacity: 1;
-      transform: rotateX(-90deg);
-      transition: transform 0.25s ease-in;
-    }
-    .moveBack {
-      opacity: 1;
-      transform: rotateX(0deg);
-      transition: transform 0.25s ease-out;
-    }
-    h1 {
-      font-size: 10rem;
+     height: 9.5rem;
+     width: 10rem;
+     background: hsl(236, 21%, 21%);
+     display: flex;
+     flex-direction: column;
+     perspective: 400px;
+     align-items: center;
+     border-radius: 7px;
+     text-align: center;
+     z-index: 0;
+   }
+   .card::before {
+     content: " ";
+     position: absolute;
+     top: 50%;
+     left: 0;
+     transform: translateY(-50%);
+     height: 1.2rem;
+     width: 0.6rem;
+     background: hsl(235, 16%, 14%);
+     align-self: center;
+     border-radius: 0 20px 20px 0;
+   }
+   .front::before,
+   .front::after,
+   .back::before,
+   .back::after,
+   .bottomBackground::before,
+   .bottomBackground::after {
+     content: " ";
+     position: absolute;
+     height: 0.6rem;
+     width: 0.6rem;
+     background: hsl(235, 16%, 14%);
+     align-self: center;
+   }
+   .front::before {
+     bottom: 0;
+     left: 0;
+     border-radius: 0 20px 0 0;
+   }
+   .front::after {
+     bottom: 0;
+     right: 0;
+     border-radius: 20px 0 0 0;
+   }
+   .back::before,
+   .bottomBackground::before {
+     top: 0;
+     left: 0;
+     border-radius: 0 0 20px 0;
+   }
+   .back::after,
+   .bottomBackground::after {
+     top: 0;
+     right: 0;
+     border-radius: 0 0 0 20px;
+   }
+   .card::after {
+     content: " ";
+     position: absolute;
+     right: 0;
+     top: 50%;
+     transform: translateY(-50%);
+     height: 1.2rem;
+     width: 0.6rem;
+     border-radius: 20px 0 0 20px;
+     background: hsl(235, 16%, 14%);
+     align-self: center;
+   }
+   .card > div {
+     height: 50%;
+     width: 100%;
+     position: absolute;
+     overflow: hidden;
+   }
+   .front {
+     transform-origin: bottom;
+     border-radius: 7px 7px 0 0;
+     z-index: 3;
+     background: hsl(236, 21%, 21%);
+   }
+   .back {
+     bottom: 0;
+     transform-origin: top;
+     transform: rotateX(90deg);
+     border-radius: 0 0 10px 10px;
+     z-index: 2;
+     background: hsl(236, 21%, 26%);
+   }
+   .moveFront {
+     opacity: 1;
+     transform: rotateX(-90deg);
+     transition: transform 0.25s ease-in;
+   }
+   .moveBack {
+     opacity: 1;
+     transform: rotateX(0deg);
+     transition: transform 0.25s ease-out;;
+   }
+   .bottomBackground {
+     background: hsl(236, 21%, 26%);
+     bottom: 0;
+     border-radius: 0 0 10px 10px;
+     z-index: 1;
+   }
+   .frontH1 {
+     margin-top: 16%;
+   }
+   .backH1, .bottomH1 {
+     margin-top: -31.6%;
+   }
+    .time {
+      margin: auto 0 auto 0;
     }
     .outer_container {
       background: hsl(234, 17%, 12%);
-      height: 9.5rem;
-      border-radius: 10px;
+      height: 10.1rem;
+      border-radius: 16px;
       display: flex;
       justify-content: center;
       align-items: flex-start;
     }
-@media only screen and (max-width: 700px) {
+    .attribution {
+      text-align: center;
+      background: hsl(233, 12%, 13%);
+    }
+    .attribution a {
+      font-size: 0.7rem;
+      text-decoration: none;
+      color: hsl(39, 89%, 49%);
+    }
+    .attribution p {
+      font-size: 0.7rem;
+      color: hsl(189, 59%, 53%);
+    }
+@media only screen and (max-width: 900px) {
   html {
-    font-size: 60%;
+    font-size: 77%;
   }
   main {
     background-size: 150% 30%;
@@ -230,11 +233,38 @@
     font-size: 2rem;
     width: 30rem;
   }
-
+}
+@media only screen and (max-width: 710px) {
+  html {
+    font-size: 54%;
+  }
+}
+@media only screen and (max-width: 550px) {
+  html {
+    font-size: 45%;
+  }
+  .num {
+    width: 100%;
+    justify-content: space-evenly;
+    padding: 0 1rem 0 1rem;
+  }
+  .outer_container {
+    /* margin: 0.8rem; */
+    border-radius: 12px;
+  }
+  .card, .front, .back, .bottomBackground {
+    border-radius: 5px;
+    perspective: 150px;
+  }
 }
 @media only screen and (max-width: 380px) {
   html {
-    font-size: 50%;
+    font-size: 40%;
+  }
+}
+@media only screen and (max-width: 325px) {
+  html {
+    font-size: 35%;
   }
 }
 
@@ -246,66 +276,62 @@
   <div class="container">
   <div class="heading"><p>WE'RE LAUNCHING SOON</p></div>
   <div class="num">
-    <!-- <div class="card"><div id="daysCard" class="clockCard"><h1 id="day">00</h1></div><p>Days</p></div>
-    <div class="card"><div id="hoursCard" class="clockCard"><h1 id="hour">00</h1></div><p>Hours</p></div>
-    <div class="card"><div id="minutesCard" class="clockCard"><h1 id="minute">00</h1></div><p>Minutes</p></div>
-    <div class="card"><div id="secondsCard" class="clockCard"><h1 id="second">00</h1></div><p>Seconds</p></div> -->
     <div class="outer_container">
-    <div class="seconds card">
-      <h1 class="cardH1">59</h1>
-      <div id="handle">
-        <h1 id="handleBack">59</h1>
-      </div>
+      <div class="card">
+        <h1 class="seconds time">59</h1>
   <div class="second front">
-    <h1 class="frontH1">59</h1>
-</div>
-  <div class="second back">
-    <h1 class="backH1">59</h1>
-</div>
-</div>
+      <h1 class="seconds frontH1">59</h1>
+  </div>
+    <div class="second back">
+      <h1 class="seconds backH1">59</h1>
+  </div>
+  <div class="bottomBackground">
+    <h1 class="seconds bottomH1">59</h1>
+  </div>
+  </div>
 </div>
 <div class="outer_container">
-<div class="minutes card">
-  <h1 class="cardH1">59</h1>
-  <div id="handle">
-    <h1 id="handleBack">59</h1>
-  </div>
+  <div class="card">
+    <h1 class="time">59</h1>
 <div class="minute front">
-<h1 class="frontH1">59</h1>
+  <h1 class="minutes frontH1">59</h1>
 </div>
 <div class="minute back">
-<h1 class="backH1">59</h1>
+  <h1 class="minutes backH1">59</h1>
+</div>
+<div class="bottomBackground">
+<h1 class="minutes bottomH1">59</h1>
 </div>
 </div>
 </div>
 <div class="outer_container">
-<div class="hours card">
-  <h1 class="cardH1">59</h1>
-  <div id="handle">
-    <h1 id="handleBack">59</h1>
-  </div>
+  <div onclick=rotateDiv() class="card">
+    <h1 class="time">59</h1>
 <div class="hour front">
-<h1 class="frontH1">59</h1>
+  <h1 class="hours frontH1">59</h1>
 </div>
 <div class="hour back">
-<h1 class="backH1">59</h1>
+  <h1 class="hours backH1">59</h1>
+</div>
+<div class="bottomBackground">
+<h1 class="hours bottomH1">59</h1>
 </div>
 </div>
 </div>
 <div class="outer_container">
-<div class="days card">
-  <h1 class="cardH1">59</h1>
-  <div id="handle">
-    <h1 id="handleBack">59</h1>
-  </div>
+  <div onclick=rotateDiv() class="card">
+    <h1 class="time">59</h1>
 <div class="day front">
-<h1 class="frontH1">59</h1>
+  <h1 class="days frontH1">59</h1>
 </div>
 <div class="day back">
-<h1 class="backH1">59</h1>
+  <h1 class="days backH1">59</h1>
 </div>
+<div class="bottomBackground">
+<h1 class="days bottomH1">59</h1>
 </div>
-</div>
+
+</div></div>
   </div>
   </div>
   <div class="footer">
@@ -314,72 +340,39 @@
     <img src="images/icon-instagram.svg" alt="in">
   </div>
   </main>
-    <!-- <div class="attribution">
-      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
-      Coded by <a href="#">Rahul Kumar Gautam</a>.
-    </div> -->
-
+  <div class="attribution">
+    <p>Challenge by - <span><a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.</span>
+    Coded by - <span><a href="https://www.frontendmentor.io/profile/RahulKumarGautam1636">Rahul Kumar Gautam</a></span>.</p>
+  </div>
 <script>
 // window.onload = setTimeout(countDown(),1000);
-var d = new Date(2021, 2, 30, 6, 3, 00);
+var d = new Date(2021, 2, 25, 11, 40, 00);
 function countDown() {
 var n = new Date();
 var count = new Date(d-n);
-// setTimeout(function(i) {
-//   $(".seconds .cardH1").text(count.getSeconds());
-//   $(".seconds .backH1").text(count.getSeconds());
-//   $(".minutes .cardH1").text(count.getMinutes());
-//   $(".minutes .backH1").text(count.getMinutes());
-//   $(".hours .cardH1").text(count.getHours());
-//   $(".hours .backH1").text(count.getHours());
-//   $(".days .cardH1").text(count.getDate());
-//   $(".days .backH1").text(count.getDate());
-// },100)
-// setTimeout(function() {
-//   $(".seconds #handleBack").text(count.getSeconds());
-//   $(".minutes #handleBack").text(count.getMinutes());
-//   $(".hours #handleBack").text(count.getHours());
-//   $(".days #handleBack").text(count.getDate());
-// },750)
-// setTimeout(function() {
-//   $(".seconds .frontH1").text(count.getSeconds());
-//   $(".minutes .frontH1").text(count.getMinutes());
-//   $(".hours .frontH1").text(count.getHours());
-//   $(".days .frontH1").text(count.getDate());
-// },550)
-// }
-$(".seconds .cardH1").text(count.getSeconds());
-$(".minutes .cardH1").text(count.getMinutes());
-$(".hours .cardH1").text(count.getHours());
-$(".days .cardH1").text(count.getDate());
-setTimeout(function(i) {
-  $(".seconds .backH1").text(count.getSeconds());
-  $(".minutes .backH1").text(count.getMinutes());
-  $(".hours .backH1").text(count.getHours());
-  $(".days .backH1").text(count.getDate());
-},100);
+$(".seconds.time").text(count.getSeconds());
+$(".minutes.time").text(count.getMinutes());
+$(".hours.time").text(count.getHours());
+$(".days.time").text(count.getDate());
 setTimeout(function() {
-  $(".seconds #handleBack").text(count.getSeconds());
-  $(".minutes #handleBack").text(count.getMinutes());
-  $(".hours #handleBack").text(count.getHours());
-  $(".days #handleBack").text(count.getDate());
-},376)
-setTimeout(function() {
-  $(".seconds .frontH1").text(count.getSeconds());
-  $(".minutes .frontH1").text(count.getMinutes());
-  $(".hours .frontH1").text(count.getHours());
-  $(".days .frontH1").text(count.getDate());
+  $(".seconds.frontH1").text(count.getSeconds());
+  $(".minutes.frontH1").text(count.getMinutes());
+  $(".hours.frontH1").text(count.getHours());
+  $(".days.frontH1").text(count.getDate());
 },250)
+setTimeout(function() {
+  $(".seconds.backH1").text(count.getSeconds());
+  $(".minutes.backH1").text(count.getMinutes());
+  $(".hours.backH1").text(count.getHours());
+  $(".days.backH1").text(count.getDate());
+},10)
+setTimeout(function() {
+  $(".seconds.bottomH1").text(count.getSeconds());
+  $(".minutes.bottomH1").text(count.getMinutes());
+  $(".hours.bottomH1").text(count.getHours());
+  $(".days.bottomH1").text(count.getDate());
+},600)
 }
-
-// function rotateDiv(i) {
-// $(i+".back").removeClass("moveBack");
-// $(i+".front").addClass("moveFront");
-// setTimeout(function() {
-//   $(i+".back").addClass("moveBack");
-//   $(i+".front").removeClass("moveFront");
-// },550);
-// };
 function rotateDiv(i) {
 $(i+".back").removeClass("moveBack");
 $(i+".front").addClass("moveFront");
@@ -388,21 +381,16 @@ setTimeout(function() {
   $(i+".front").removeClass("moveFront");
 },250);
 };
-// rotateDiv(".second");
-// rotateDiv(".minute");
-// rotateDiv(".hour");
-// rotateDiv(".day");
-
 setInterval(countDown, 1000);
-setTimeout(function() {setInterval(function() {rotateDiv(".second")}, 1000);},0);
 setInterval(function() {
-if ($(".seconds .frontH1").html() === "0") {
+  rotateDiv(".second")
+if ($(".seconds.frontH1").html() === "0") {
    rotateDiv(".minute");
 }
-if ($(".minutes .frontH1").html() === "0" && $(".seconds .frontH1").html() === "0") {
+if ($(".minutes.frontH1").html() === "0" && $(".seconds.frontH1").html() === "0") {
   rotateDiv(".hour")
 }
-if ($(".hours .frontH1").html() === "0" && $(".minutes .frontH1").html() === "0" && $(".seconds .frontH1").html() === "0") {
+if ($(".hours.frontH1").html() === "0" && $(".minutes.frontH1").html() === "0" && $(".seconds.frontH1").html() === "0") {
   rotateDiv(".day");
 }
 },1000);
