@@ -65,6 +65,7 @@
     font-size: 1.5rem;
     letter-spacing: 0.5rem;
     word-spacing: 0.5rem;
+    transition: opacity 1s;
   }
   .footer {
     margin-bottom: clamp(3rem, 12vw, 4rem);;
@@ -75,6 +76,7 @@
   }
   .footer img {
     margin: 0 2rem 0 2rem;
+    transition: opacity 1s;
   }
   .card h1 {
     color: hsl(345, 95%, 68%);
@@ -221,6 +223,13 @@
     font-size: 0.7rem;
     color: hsl(189, 59%, 53%);
   }
+   .moveSecCard {transform: translateX(32rem);}
+  .moveMinCard {transform: translateY(-32rem);}
+  .moveHourCard {transform: translateY(32rem);}
+  .moveDayCard {transform: translateX(-32rem);}
+  .hide {
+    opacity: 0;
+  }
 @media only screen and (max-width: 900px) {
 html {
   /* font-size: 77%; */
@@ -312,10 +321,10 @@ html {
 <main id="parent">
 <svg id="stars" xmlns="http://www.w3.org/2000/svg" width="1440" height="569"><path fill="#46485B" fill-rule="evenodd" d="M774 563a3 3 0 110 6 3 3 0 010-6zm-623.5-5a1.5 1.5 0 110 3 1.5 1.5 0 010-3zm875 0a1.5 1.5 0 110 3 1.5 1.5 0 010-3zm-523-3a1.5 1.5 0 110 3 1.5 1.5 0 010-3zm233-7a1.5 1.5 0 110 3 1.5 1.5 0 010-3zM178 542a3 3 0 110 6 3 3 0 010-6zm1127.5 2a1.5 1.5 0 110 3 1.5 1.5 0 010-3zm45.5-10a3 3 0 110 6 3 3 0 010-6zm-565.5-3a1.5 1.5 0 110 3 1.5 1.5 0 010-3zm-784-15a1.5 1.5 0 110 3 1.5 1.5 0 010-3zm278.5-9a3 3 0 110 6 3 3 0 010-6zm207.5-30a1.5 1.5 0 110 3 1.5 1.5 0 010-3zm50-17a1.5 1.5 0 110 3 1.5 1.5 0 010-3zm233-8a1.5 1.5 0 110 3 1.5 1.5 0 010-3zm465-22a1.5 1.5 0 110 3 1.5 1.5 0 010-3zm-699-6a1.5 1.5 0 110 3 1.5 1.5 0 010-3zm-465-22a1.5 1.5 0 110 3 1.5 1.5 0 010-3zm1165-8a1.5 1.5 0 110 3 1.5 1.5 0 010-3zm-50-17a1.5 1.5 0 110 3 1.5 1.5 0 010-3zM250 345a3 3 0 110 6 3 3 0 010-6zm450.5-7a1.5 1.5 0 110 3 1.5 1.5 0 010-3zm-614-15a1.5 1.5 0 110 3 1.5 1.5 0 010-3zm520-13a1.5 1.5 0 110 3 1.5 1.5 0 010-3zm-570-4a1.5 1.5 0 110 3 1.5 1.5 0 010-3zm1169.5-7a3 3 0 110 6 3 3 0 010-6zm-4.5 0a1.5 1.5 0 110 3 1.5 1.5 0 010-3zm-875-3a1.5 1.5 0 110 3 1.5 1.5 0 010-3zm523 0a1.5 1.5 0 110 3 1.5 1.5 0 010-3zm-392-34a1.5 1.5 0 110 3 1.5 1.5 0 010-3zm656 0a1.5 1.5 0 110 3 1.5 1.5 0 010-3zm-1008-3a1.5 1.5 0 110 3 1.5 1.5 0 010-3zm1298-7a1.5 1.5 0 110 3 1.5 1.5 0 010-3zm-570-4a1.5 1.5 0 110 3 1.5 1.5 0 010-3zm520-13a1.5 1.5 0 110 3 1.5 1.5 0 010-3zm-145.5-9a3 3 0 110 6 3 3 0 010-6zm-601.5-6a1.5 1.5 0 110 3 1.5 1.5 0 010-3zm499.5-29a3 3 0 110 6 3 3 0 010-6zm-985.5-10a1.5 1.5 0 110 3 1.5 1.5 0 010-3zm-50-17a1.5 1.5 0 110 3 1.5 1.5 0 010-3zm1298-8a1.5 1.5 0 110 3 1.5 1.5 0 010-3zm-465-22a1.5 1.5 0 110 3 1.5 1.5 0 010-3zm-832-6a1.5 1.5 0 110 3 1.5 1.5 0 010-3zm33.5-18a3 3 0 110 6 3 3 0 010-6zm431.5-4a1.5 1.5 0 110 3 1.5 1.5 0 010-3zm366-8a1.5 1.5 0 110 3 1.5 1.5 0 010-3zm50-17a1.5 1.5 0 110 3 1.5 1.5 0 010-3zm486-39a1.5 1.5 0 110 3 1.5 1.5 0 010-3zM1136 29a3 3 0 110 6 3 3 0 010-6zm-614.5-2a1.5 1.5 0 110 3 1.5 1.5 0 010-3zM412 23a3 3 0 110 6 3 3 0 010-6zM1.5 14a1.5 1.5 0 110 3 1.5 1.5 0 010-3zm570-4a1.5 1.5 0 110 3 1.5 1.5 0 010-3zm366-7a1.5 1.5 0 110 3 1.5 1.5 0 010-3zm-656-3a1.5 1.5 0 110 3 1.5 1.5 0 010-3zm1008 0a1.5 1.5 0 110 3 1.5 1.5 0 010-3z"/></svg>
 <div class="container">
-<div class="heading"><p>WE'RE LAUNCHING SOON</p></div>
+<div class="heading hide"><p>WE'RE LAUNCHING SOON</p></div>
 <div class="num">
   <div class="outer_container">
-    <div class="card">
+    <div class="card moveSecCard">
 <div class="second front">
     <h1 class="seconds frontH1">59</h1>
 </div>
@@ -328,7 +337,7 @@ html {
 </div>
 </div>
 <div class="outer_container">
-<div class="card">
+<div class="card moveMinCard">
 <div class="minute front">
 <h1 class="minutes frontH1">59</h1>
 </div>
@@ -341,7 +350,7 @@ html {
 </div>
 </div>
 <div class="outer_container">
-<div class="card">
+<div class="card moveHourCard">
 <div class="hour front">
 <h1 class="hours frontH1">59</h1>
 </div>
@@ -354,7 +363,7 @@ html {
 </div>
 </div>
 <div class="outer_container">
-<div class="card">
+<div class="card moveDayCard">
 <div class="day front">
 <h1 class="days frontH1">59</h1>
 </div>
@@ -369,9 +378,9 @@ html {
 </div>
 </div>
 <div class="footer">
-  <img src="images/icon-facebook.svg" alt="fb">
-  <img src="images/icon-pinterest.svg" alt="pn">
-  <img src="images/icon-instagram.svg" alt="in">
+  <img class="hide" src="images/icon-facebook.svg" alt="fb">
+  <img class="hide" src="images/icon-pinterest.svg" alt="pn">
+  <img class="hide" src="images/icon-instagram.svg" alt="in">
 </div>
 </main>
 <div class="attribution">
@@ -379,8 +388,8 @@ html {
   Coded by - <span><a href="https://www.frontendmentor.io/profile/RahulKumarGautam1636">Rahul Kumar Gautam</a></span>.</p>
 </div>
 <script>
-// window.onload = setTimeout(countDown(),1000);
-var d = new Date(2021, 2, 25, 11, 40, 00);
+window.onload = replace();
+var d = new Date(2021, 25, 25, 11, 40, 00);
 function countDown() {
 var n = new Date();
 var count = new Date(d-n);
@@ -403,6 +412,13 @@ $(".hours.bottomH1").text(count.getHours());
 $(".days.bottomH1").text(count.getDate());
 },600)
 }
+function replace() {
+  $(".card").css("transform", "translate(0)");
+setTimeout(function() {
+  $(".heading").removeClass("hide");
+  $(".footer img").removeClass("hide");
+},1000)
+}
 function rotateDiv(i) {
 $(i+".back").removeClass("moveBack");
 $(i+".front").addClass("moveFront");
@@ -411,6 +427,11 @@ $(i+".back").addClass("moveBack");
 $(i+".front").removeClass("moveFront");
 },250);
 };
+setTimeout(function() {
+  rotateDiv(".minute");
+  rotateDiv(".hour");
+  rotateDiv(".day");
+},1000);
 setInterval(countDown, 1000);
 setInterval(function() {
 rotateDiv(".second")
@@ -418,12 +439,11 @@ if ($(".seconds.frontH1").html() === "0") {
  rotateDiv(".minute");
 }
 if ($(".minutes.frontH1").html() === "0" && $(".seconds.frontH1").html() === "0") {
-rotateDiv(".hour")
+rotateDiv(".hour");
 }
 if ($(".hours.frontH1").html() === "0" && $(".minutes.frontH1").html() === "0" && $(".seconds.frontH1").html() === "0") {
 rotateDiv(".day");
 }
-},1000);
-</script>
+},1000);</script>
 </body>
 </html>
