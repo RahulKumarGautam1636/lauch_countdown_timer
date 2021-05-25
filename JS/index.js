@@ -31,6 +31,7 @@ function rePosition() {             // plays the initial translate effect.
   setTimeout(function() {
     $(".heading").removeClass("hide");
     $(".footer img").removeClass("hide");
+    $(".time").removeClass("hide");
   }, 1800)
 }
 
