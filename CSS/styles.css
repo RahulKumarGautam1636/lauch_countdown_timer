@@ -26,6 +26,12 @@ main {
 
 #stars {
   position: absolute;
+  animation: moveBg 1s linear infinite;
+}
+@keyframes moveBg {
+  100% {
+    transform: translateY(20rem);
+  }
 }
 
 .container {
@@ -61,7 +67,6 @@ main {
 
 .footer {
   margin-bottom: clamp(3rem, 12vw, 4rem);
-  ;
   position: relative;
   height: 2rem;
   width: 100%;
