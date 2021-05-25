@@ -96,7 +96,7 @@
    border-radius: 7px;
    text-align: center;
    z-index: 0;
-   /* background: transparent; */
+   transition: transform 1s ease-in-out;
  }
  .card::before {
    content: " ";
@@ -388,7 +388,6 @@ html {
   Coded by - <span><a href="https://www.frontendmentor.io/profile/RahulKumarGautam1636">Rahul Kumar Gautam</a></span>.</p>
 </div>
 <script>
-window.onload = replace();
 var d = new Date(2021, 25, 25, 11, 40, 00);
 function countDown() {
 var n = new Date();
@@ -412,7 +411,7 @@ $(".hours.bottomH1").text(count.getHours());
 $(".days.bottomH1").text(count.getDate());
 },600)
 }
-function replace() {
+function reposition() {
   $(".card").css("transform", "translate(0)");
 setTimeout(function() {
   $(".heading").removeClass("hide");
@@ -432,6 +431,9 @@ setTimeout(function() {
   rotateDiv(".hour");
   rotateDiv(".day");
 },1000);
+document.addEventListener('DOMContentLoaded', function() {
+  rePosition();
+});
 setInterval(countDown, 1000);
 setInterval(function() {
 rotateDiv(".second")
