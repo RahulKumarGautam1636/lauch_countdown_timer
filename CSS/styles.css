@@ -1,0 +1,337 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Red Hat Text", cursive;
+}
+
+main {
+  height: 100vh;
+  width: 100%;
+  position: absolute;
+  background: hsl(235, 16%, 14%);
+  background-image: url('images/pattern-hills.svg');
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: 100%;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#stars {
+  position: absolute;
+}
+
+.container {
+  height: clamp(51%, 66vw, 35rem);
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+}
+
+.num {
+  width: 65%;
+  min-width: 62rem;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.card p {
+  color: hsl(237, 18%, 59%);
+  letter-spacing: 1px;
+}
+
+.heading {
+  text-align: center;
+  color: hsl(0, 0%, 100%);
+  font-size: 1.5rem;
+  letter-spacing: 0.5rem;
+  word-spacing: 0.5rem;
+  transition: opacity 1s;
+}
+
+.footer {
+  margin-bottom: clamp(3rem, 12vw, 4rem);
+  ;
+  position: relative;
+  height: 2rem;
+  width: 100%;
+  text-align: center;
+}
+
+.footer img {
+  margin: 0 2rem 0 2rem;
+  transition: opacity 1s;
+}
+
+.card h1 {
+  color: hsl(345, 95%, 68%);
+  font-size: 4.6rem;
+}
+
+#head {
+  background: white;
+}
+
+.card {
+  height: 9.5rem;
+  width: 10rem;
+  background: hsl(236, 21%, 21%);
+  display: flex;
+  flex-direction: column;
+  perspective: 400px;
+  align-items: center;
+  border-radius: 7px;
+  text-align: center;
+  z-index: 0;
+  transition: transform 1s ease-in-out;
+}
+
+.card::before {
+  content: " ";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  height: 17%;
+  width: 8%;
+  background: hsl(235, 16%, 14%);
+  align-self: center;
+  border-radius: 0 20px 20px 0;
+}
+
+.front::before,
+.front::after,
+.back::before,
+.back::after,
+.bottomBackground::before,
+.bottomBackground::after {
+  content: " ";
+  position: absolute;
+  height: 17%;
+  width: 8%;
+  background: hsl(235, 16%, 14%);
+  align-self: center;
+}
+
+.front::before {
+  bottom: 0;
+  left: 0;
+  border-radius: 0 20px 0 0;
+}
+
+.front::after {
+  bottom: 0;
+  right: 0;
+  border-radius: 20px 0 0 0;
+}
+
+.back::before,
+.bottomBackground::before {
+  top: 0;
+  left: 0;
+  border-radius: 0 0 20px 0;
+}
+
+.back::after,
+.bottomBackground::after {
+  top: 0;
+  right: 0;
+  border-radius: 0 0 0 20px;
+}
+
+.card::after {
+  content: " ";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 17%;
+  width: 8%;
+  border-radius: 20px 0 0 20px;
+  background: hsl(235, 16%, 14%);
+  align-self: center;
+}
+
+.card>div {
+  height: 50%;
+  width: 100%;
+  position: absolute;
+  overflow: hidden;
+}
+
+.front {
+  transform-origin: bottom;
+  border-radius: 7px 7px 0 0;
+  z-index: 3;
+  background: hsl(236, 21%, 21%);
+}
+
+.back {
+  bottom: 0;
+  transform-origin: top;
+  transform: rotateX(90deg);
+  border-radius: 0 0 10px 10px;
+  z-index: 2;
+  background: hsl(236, 21%, 26%);
+}
+
+.moveFront {
+  opacity: 1;
+  transform: rotateX(-90deg);
+  transition: transform 0.25s ease-in;
+}
+
+.moveBack {
+  opacity: 1;
+  transform: rotateX(0deg);
+  transition: transform 0.25s ease-out;
+  ;
+}
+
+.bottomBackground {
+  background: hsl(236, 21%, 26%);
+  bottom: 0;
+  border-radius: 0 0 10px 10px;
+  z-index: 1;
+}
+
+.frontH1 {
+  margin-top: 16%;
+}
+
+.backH1,
+.bottomH1 {
+  margin-top: -31.6%;
+}
+
+.outer_container {
+  background: hsl(234, 17%, 12%);
+  height: 10.1rem;
+  border-radius: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.attribution {
+  text-align: center;
+  background: hsl(233, 12%, 13%);
+}
+
+.attribution a {
+  font-size: 0.7rem;
+  text-decoration: none;
+  color: hsl(39, 89%, 49%);
+}
+
+.attribution p {
+  font-size: 0.7rem;
+  color: hsl(189, 59%, 53%);
+}
+
+.moveSecCard {
+  transform: translateX(32rem);
+}
+
+.moveMinCard {
+  transform: translateY(-32rem);
+}
+
+.moveHourCard {
+  transform: translateY(32rem);
+}
+
+.moveDayCard {
+  transform: translateX(-32rem);
+}
+
+.hide {
+  opacity: 0;
+}
+
+@media only screen and (max-width: 900px) {
+  main {
+    background-size: 150% 30%;
+  }
+
+  .heading p {
+    font-size: 4vw;
+    width: 84vw;
+  }
+
+  .num {
+    width: 104vw;
+    min-width: auto;
+  }
+
+  .outer_container {
+    height: 18vw;
+    margin: 3vw;
+  }
+
+  .card {
+    height: 16.5vw;
+    width: 17.5vw;
+  }
+
+  .card h1 {
+    font-size: 7.75vw;
+  }
+
+  .frontH1 {
+    margin-top: 3.2vw;
+  }
+
+  .backH1,
+  .bottomH1 {
+    margin-top: -5.14vw;
+  }
+
+  .footer img {
+    margin: 0 3vw 0 3vw;
+  }
+}
+
+@media only screen and (max-width: 710px) {
+
+  .front::before,
+  .front::after,
+  .back::before,
+  .back::after,
+  .bottomBackground::before,
+  .bottomBackground::after {
+    height: 1.1vw;
+    width: 1.1vw;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .num {
+    width: 100%;
+    justify-content: center;
+    padding: 0 1rem 0 1rem;
+  }
+
+  .outer_container {
+    border-radius: 12px;
+  }
+}
+
+@media only screen and (max-width: 420px) {
+  .card {
+    perspective: 160px;
+  }
+  .attribution a, .attribution p {
+    font-size: 2.5vw;
+  }
+}
